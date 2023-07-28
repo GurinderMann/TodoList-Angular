@@ -1,0 +1,13 @@
+<div class="container">
+  <div *ngIf="isLoading" class="loading">
+    <div class="loader"></div>
+  </div>
+  <div *ngIf="!isLoading">
+    <h3>Completed Todos</h3>
+    <ul>
+      <li *ngFor="let todo of completedTodos">
+        {{ todo.title }}
+      </li>
+    </ul>
+  </div>
+</div>

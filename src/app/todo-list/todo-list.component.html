@@ -1,0 +1,26 @@
+<div class="container">
+  <div *ngIf="isLoading" class="loading">
+    <div class="loader"></div>
+  </div>
+  <div *ngIf="!isLoading">
+    <form>
+      <input
+        type="text"
+        name="title"
+        [(ngModel)]="newTodo.title"
+        placeholder="Enter Todo Title"
+        class="form-control"
+      />
+      <button (click)="createTodo()" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div *ngIf="todos.length === 0">Ops, you have no todos</div>
+
+    <ul>
+      <li *ngFor="let todo of todos">
+        {{ todo.title }}
+        <button (click)="markAsCompleted(todo)">V</button>
+      </li>
+    </ul>
+  </div>
+</div>
